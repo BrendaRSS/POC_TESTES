@@ -20,7 +20,11 @@ npm i
 
 4. Configure the `.env` file using the `.env.example` file
 
-5. Run commands from `dump.sql` file
+5. Run migration
+
+```bash
+npx prisma migrate dev
+```
 
 6. Run the back-end in a development environment:
 
@@ -28,20 +32,24 @@ npm i
 npm run dev
 ```
 
-## how to use routes
+## How to use routes
 
--> POST: /NewBook
+-> POST: /newBook
 
 - BODY: { "title": string, "author": string, "genre": number, "status": "not started" }
 
--> GET: /AllBooks?genre=5
+-> GET: /allBooks?genre=5
 
--> PATCH: /BookStarted/:id
+-> PATCH: /dookStarted/:id
 
 - BODY: { "status": "reading"}
 
--> PATCH: /BookFinished/:id
+-> PATCH: /bookFinished/:id
 
 - BODY: { "iliked": true || false, "abstract": string }
 
--> DELETE: /DeleteBook/:id
+-> DELETE: /deleteBook/:id
+
+-> GET: /genres
+
+-> GET: /reviews
