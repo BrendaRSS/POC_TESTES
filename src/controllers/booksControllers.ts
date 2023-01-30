@@ -5,10 +5,13 @@ import {
     postNewBookService, 
     updateBookStartedService,
     updateBookFinishedService,
+    getReviewService,
+    deleteReviewService,
     deleteOneBookService,
     genreExistService,
     getAllGenresService,
-    createReviewService
+    createReviewService,
+    getReviewsService
  } from "../services/bookService/index.js";
 
 
@@ -76,6 +79,11 @@ export async function deleteBook(req: Request, res: Response) : Promise<Response
     const { id } = req.params;
 
     try{
+        const existReview = await getReviewService(Number(id));
+        if(existReview){
+            await deleteReviewService(existReview.id);
+        }
+        
         await deleteOneBookService(Number(id));
         return res.sendStatus(200);
     } catch(error){
@@ -89,6 +97,16 @@ export async function getAllGenres(req: Request, res: Response) {
         const genres = await getAllGenresService();
         return res.status(200).send(genres);
     } catch (error) {
+        console.log(error);
+        return res.sendStatus(500);
+    }
+}
+
+export async function getReviews(req: Request, res: Response) {
+    try{
+        const reviews = await getReviewsService();
+        return res.status(200).send(reviews);
+    } catch(error) {
         console.log(error);
         return res.sendStatus(500);
     }

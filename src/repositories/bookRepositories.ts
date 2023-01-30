@@ -78,6 +78,22 @@ export async function createReviewRepository(body : BodyReview) {
    })
 }
 
+export async function getReviewRepository(id: number) {
+  return await prisma.book_review.findFirst({
+      where:{
+         bookId: id
+      }
+   })
+}
+
+export async function deleteReviewRepository(id: number) {
+   await prisma.book_review.delete({
+      where: {
+         id: id
+      }
+   })
+}
+
 export async function deleteOneBookRepository(id : number) {
    await prisma.books.delete({
       where: {
@@ -88,4 +104,8 @@ export async function deleteOneBookRepository(id : number) {
 
 export async function getAllGenresRepository() {
    return await prisma.genres.findMany();
+}
+
+export async function getReviewsRepository() {
+   return await prisma.book_review.findMany();
 }

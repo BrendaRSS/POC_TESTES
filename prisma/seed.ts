@@ -1,4 +1,4 @@
-import prisma from "../src/configs/database";
+import prisma from "../src/configs/database.js";
 
 async function main() {
     await prisma.genres.createMany({
@@ -23,7 +23,19 @@ async function main() {
             },
             {
                 "genre": "Fantasy"
-            }
+            },
+            {
+                "genre": "Drama"
+            },
+            {
+                "genre": "Self development"
+            },
+            {
+                "genre": "Science fiction"
+            },
+            {
+                "genre": "Motivational"
+            },
         ]
     })
 }

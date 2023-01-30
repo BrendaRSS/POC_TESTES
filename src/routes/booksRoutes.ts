@@ -5,7 +5,8 @@ import {
     bookStarted, 
     bookFinished, 
     deleteBook,
-    getAllGenres
+    getAllGenres,
+    getReviews
 } from "../controllers/booksControllers.js";
 import { bookMiddleware } from "../middlewares/bookMiddleware.js";
 import { updateBookMiddleware } from "../middlewares/updateBookMiddleware.js";
@@ -24,5 +25,7 @@ router.patch("/bookFinished/:id", reviewBookMiddleware, bookFinished);
 router.delete("/deleteBook/:id", deleteBook);
 
 router.get("/genres", getAllGenres);
+
+router.get("/reviews", getReviews);
 
 export default router;

@@ -4,10 +4,13 @@ import {
     postNewBookRepository, 
     updateBookStartedRepository, 
     updateBookFinishedRepository, 
+    getReviewRepository,
+    deleteReviewRepository,
     deleteOneBookRepository,
     genreExistRepository,
     getAllGenresRepository,
-    createReviewRepository
+    createReviewRepository,
+    getReviewsRepository
 } from "../../repositories/bookRepositories.js";
 
 export async function getAllBooksService(genre: number) {
@@ -38,12 +41,27 @@ export async function createReviewService(body: BodyReview)   {
     await createReviewRepository(body);
 }
 
+export async function getReviewService(id: number) {
+    const result = await getReviewRepository(id);
+    return result;
+}
+
+export async function deleteReviewService(id: number) {
+    await deleteReviewRepository(id);
+}
+
 export async function deleteOneBookService(id: number) {
     await deleteOneBookRepository(id);
 }
 
 export async function getAllGenresService() {
     const result = await getAllGenresRepository();
+
+    return result;
+}
+
+export async function getReviewsService() {
+    const result = await getReviewsRepository();
 
     return result;
 }
