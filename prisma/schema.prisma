@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model book_review {
+  id       Int     @id @default(autoincrement())
+  bookId   Int
+  iliked   Boolean
+  abstract String? @default("there is no summary")
+  books    books   @relation(fields: [bookId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model books {
+  id          Int           @id @default(autoincrement())
+  title       String
+  author      String
+  genreId     Int
+  status      String        @default("not started")
+  startedIn   DateTime?     @db.Timestamp(6)
+  finishedIn  DateTime?     @db.Timestamp(6)
+  book_review book_review[]
+  genres      genres        @relation(fields: [genreId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model genres {
+  id    Int     @id @default(autoincrement())
+  genre String  @unique
+  books books[]
+}
