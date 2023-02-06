@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { BookStartedSchema } from "../models/schemas.js";
-import { BookUpadate } from "../protocols.js";
+import { BookStartedSchema } from "../models/schemas";
+import { BookUpadate } from "../protocols";
 
 export async function updateBookMiddleware(req: Request, res: Response, next: NextFunction){
     const body = req.body as BookUpadate;

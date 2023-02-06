@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { ReviewBookSchema } from "../models/schemas.js";
-import { Review } from "../protocols.js";
+import { ReviewBookSchema } from "../models/schemas";
+import { Review } from "../protocols";
 
 export async function reviewBookMiddleware(req: Request, res: Response, next: NextFunction){
     const body = req.body as Review ;

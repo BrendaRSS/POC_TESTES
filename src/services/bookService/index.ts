@@ -1,4 +1,4 @@
-import { Book, BookUpadate, BodyReview } from "../../protocols.js";
+import { Book, BookUpadate, BodyReview } from "../../protocols";
 import {
     getAllBooksRepository, 
     postNewBookRepository, 
@@ -11,7 +11,7 @@ import {
     getAllGenresRepository,
     createReviewRepository,
     getReviewsRepository
-} from "../../repositories/bookRepositories.js";
+} from "../../repositories/bookRepositories";
 
 export async function getAllBooksService(genre: number) {
     const books = await getAllBooksRepository(genre); 

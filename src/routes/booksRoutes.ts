@@ -7,10 +7,10 @@ import {
     deleteBook,
     getAllGenres,
     getReviews
-} from "../controllers/booksControllers.js";
-import { bookMiddleware } from "../middlewares/bookMiddleware.js";
-import { updateBookMiddleware } from "../middlewares/updateBookMiddleware.js";
-import { reviewBookMiddleware } from "../middlewares/finishedBookMiddleware.js";
+} from "../controllers/booksControllers";
+import { bookMiddleware } from "../middlewares/bookMiddleware";
+import { updateBookMiddleware } from "../middlewares/updateBookMiddleware";
+import { reviewBookMiddleware } from "../middlewares/finishedBookMiddleware";
 
 const router = Router();
 

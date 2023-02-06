@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
-import booksRoutes from "./routes/booksRoutes.js";
+import booksRoutes from "./routes/booksRoutes";
 
 const app = express();
 app.use(express.json());
@@ -15,3 +15,5 @@ app.get("/health", (req: Request, res : Response)=> {
 
 const port = process.env.PORT
 app.listen(port, () => console.log(`Server running in port ${port}`))
+
+export default app;

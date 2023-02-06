@@ -1,5 +1,5 @@
-import prisma from "../configs/database.js";
-import { Book, BookUpadate, BodyReview } from "../protocols.js";
+import prisma from "../configs/database";
+import { Book, BookUpadate, BodyReview } from "../protocols";
 
 export async function getAllBooksRepository(genre : number) {
    if(genre){

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Book, BookUpadate, Review, BodyReview } from "../protocols.js";
+import { Book, BookUpadate, Review, BodyReview } from "../protocols";
 import { 
     getAllBooksService, 
     postNewBookService, 
@@ -12,7 +12,7 @@ import {
     getAllGenresService,
     createReviewService,
     getReviewsService
- } from "../services/bookService/index.js";
+ } from "../services/bookService/index";
 
 
 export async function getAllBooks(req: Request, res: Response) : Promise<Response<Book>> {
